@@ -5,18 +5,18 @@ import { IconType } from "react-icons";
 interface ButtonProps {
   label: string;
   onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  dissabled?: boolean;
+  disabled?: boolean;
   outline?: boolean;
   small?: boolean;
   icon?: IconType;
 }
 
 const Button = (props: ButtonProps) => {
-  const { label, onClick, dissabled, outline, small, icon: Icon } = props;
+  const { label, onClick, disabled, outline, small, icon: Icon } = props;
   return (
     <button
       onClick={onClick}
-      disabled={dissabled}
+      disabled={disabled}
       className={`relative w-full rounded-lg transition hover:opacity-80 disabled:cursor-not-allowed disabled:opacity-70 
       ${outline ? "bg-white" : "bg-rose-500"} 
       ${outline ? "border-black" : "border-rose-500"} 
