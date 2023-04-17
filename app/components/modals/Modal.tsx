@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { MdClose } from "react-icons/md";
+import Button from "../Button";
 
 interface ModalProps {
   isOpen?: boolean;
@@ -76,7 +77,15 @@ const Modal = (props: ModalProps) => {
                 <button className="absolute left-9 border-0 p-1 transition hover:opacity-70">
                   <MdClose size={18} onClick={handleClose} />
                 </button>
-                <div className="text-left font-semibold">{title}</div>
+                <div className="text-lg font-semibold">{title}</div>
+              </div>
+              {/* BODY */}
+              <div className="relative flex-auto p-6">{body}</div>
+              {/* FOOTER */}
+              <div className="flex flex-col gap-2 p-6">
+                <div className="flex w-full flex-row items-center gap-4">
+                  <Button icon={MdClose} label="my button" />
+                </div>
               </div>
             </div>
           </div>
