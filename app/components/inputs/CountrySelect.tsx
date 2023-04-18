@@ -12,7 +12,7 @@ export type CountrySelectValue = {
 
 interface CountrSelectProps {
   value?: CountrySelectValue;
-  onChange: (value: CountrySelectValue) => null;
+  onChange: (value: CountrySelectValue) => void;
 }
 
 const CountrySelect = ({ value, onChange }: CountrSelectProps) => {
