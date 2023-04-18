@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import Heading from "../Heading";
 import { categories } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
+import { FieldValues, useForm } from "react-hook-form";
 
 enum STEPS {
   CATEGORY = 0,
@@ -20,6 +21,38 @@ const RentModal = () => {
   const rentModal = useRentModal();
 
   const [step, setSetps] = useState(STEPS.CATEGORY);
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    watch,
+    formState: { errors },
+    reset,
+  } = useForm<FieldValues>({
+    defaultValues: {
+      category: "",
+      location: null,
+      guestCounte: 1,
+      roomCount: 1,
+      bathroomCount: 1,
+      imageSrc: "",
+      proce: 1,
+      title: "",
+      description: "",
+    },
+  });
+
+  const category = watch("category");
+
+  // By default setValue from react-hooks doesn't rerender the page
+  const setCustomValue = (id: string, value: any) => {
+    setValue(id, value, {
+      shouldValidate: true,
+      shouldDirty: true,
+      shouldTouch: true,
+    });
+  };
 
   const onBack = () => {
     setSetps((value) => value - 1);
@@ -53,8 +86,11 @@ const RentModal = () => {
         {categories.map((item) => (
           <div key={item.label} className="col-span-1">
             <CategoryInput
-              onClick={() => {}}
-              selected={false}
+              onClick={(category) => {
+                setCustomValue("category", category);
+                console.log(category);
+              }}
+              selected={category === item.label}
               label={item.label}
               icon={item.icon}
             />
