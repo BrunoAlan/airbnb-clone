@@ -45,6 +45,7 @@ const RentModal = () => {
   });
 
   const category = watch("category");
+  const location = watch("location");
 
   // By default setValue from react-hooks doesn't rerender the page
   const setCustomValue = (id: string, value: any) => {
@@ -106,7 +107,10 @@ const RentModal = () => {
           title="Where is your place located?"
           subtitle="Help guest find you!"
         />
-        <CountrySelect />
+        <CountrySelect
+          value={location}
+          onChange={(value) => setCustomValue("location", value)}
+        />
       </div>
     );
   }
