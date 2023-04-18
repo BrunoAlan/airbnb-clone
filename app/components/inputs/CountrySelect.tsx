@@ -10,12 +10,12 @@ export type CountrySelectValue = {
   value: string;
 };
 
-interface CountrSelectProps {
+interface CountrySelectProps {
   value?: CountrySelectValue;
   onChange: (value: CountrySelectValue) => void;
 }
 
-const CountrySelect = ({ value, onChange }: CountrSelectProps) => {
+const CountrySelect = ({ value, onChange }: CountrySelectProps) => {
   const { getAll } = useCountries();
   return (
     <div>
