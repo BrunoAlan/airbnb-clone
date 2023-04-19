@@ -35,13 +35,17 @@ const ListingClient = ({
 
   const disabledDates = useMemo(() => {
     let dates: Date[] = [];
-    reservations.forEach((reservation) => {
+
+    reservations.forEach((reservation: any) => {
       const range = eachDayOfInterval({
         start: new Date(reservation.startDate),
         end: new Date(reservation.endDate),
       });
+
       dates = [...dates, ...range];
     });
+
+    return dates;
   }, [reservations]);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -110,6 +114,7 @@ const ListingClient = ({
             />
             <div className="order-first mb-10 md:order-last md:col-span-3">
               <ListingReservations
+                dateRange={dateRange}
                 price={listing.price}
                 totalPrice={totalPrice}
                 onChangeDate={(value) => setDateRange(value)}
