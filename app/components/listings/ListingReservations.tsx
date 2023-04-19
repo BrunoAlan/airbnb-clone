@@ -24,7 +24,7 @@ const ListingReservations = (props: ListingReservationsProps) => {
   } = props;
   return (
     <div className="overflow-hidden rounded-xl border-[1px] border-neutral-200 bg-white">
-      <div className="flow-row gap 1 flex items-center p-4">
+      <div className="flow-row flex items-center gap-1 p-4">
         <div className="text-2xl font-semibold">$ {price}</div>
         <div className="font-light text-neutral-600"> night</div>
       </div>
