@@ -7,6 +7,8 @@ import { Listing, Reservation } from "@prisma/client";
 import { useCallback, useMemo } from "react";
 import { format } from "date-fns";
 import Image from "next/image";
+import HeartButton from "../HeartButton";
+import Button from "../Button";
 
 interface ListingCardProps {
   data: Listing;
@@ -70,7 +72,28 @@ const ListingCard = (props: ListingCardProps) => {
             src={data.imageSrc}
             className="h-full w-full object-cover transition group-hover:scale-110"
           />
+          <div className="absolute right-3 top-3">
+            <HeartButton listingId={data.id} currentUser={currentUser} />
+          </div>
         </div>
+        <div className="text-lg font-semibold">
+          {location?.region},{location?.label}
+        </div>
+        <div className="font-light text-neutral-500">
+          {reservationDate || data.category}
+        </div>
+        <div className="flex flex-row items-center gap-1">
+          <div className="font-semibold">$ {price}</div>
+          {!reservation && <div className="font-light">night</div>}
+        </div>
+        {onAction && actionLabel && (
+          <Button
+            small
+            disabled={disabled}
+            label={actionLabel}
+            onClick={handleCancel}
+          />
+        )}
       </div>
     </div>
   );
