@@ -31,7 +31,7 @@ const ListingReservations = (props: ListingReservationsProps) => {
       <Calendar
         value={dateRange}
         disabledDates={disabledDates}
-        onChange={(value) => onChangeDate(value.selection)}
+        onChange={onChangeDate}
       />
     </div>
   );
