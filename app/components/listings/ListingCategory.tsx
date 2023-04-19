@@ -2,13 +2,13 @@
 
 import { IconType } from "react-icons";
 
-interface CategoryViewProps {
+interface ListingCategoryProps {
   icon: IconType;
   label: string;
   description: string;
 }
 
-const CategoryView = (props: CategoryViewProps) => {
+const ListingCategory = (props: ListingCategoryProps) => {
   const { icon: Icon, label, description } = props;
   return (
     <div className="flex flex-col gap-6">
@@ -23,4 +23,4 @@ const CategoryView = (props: CategoryViewProps) => {
   );
 };
 
-export default CategoryView;
+export default ListingCategory;
