@@ -25,6 +25,7 @@ export default async function getListings(params: IListingsParams) {
       query.category = category;
     }
 
+    // gte => greater than or equal
     if (roomCount) {
       query.roomCount = {
         gte: +roomCount
@@ -52,7 +53,7 @@ export default async function getListings(params: IListingsParams) {
         reservations: {
           some: {
             OR: [
-              {
+              {    // lte => lower than or equal
                 endDate: { gte: startDate },
                 startDate: { lte: startDate }
               },
