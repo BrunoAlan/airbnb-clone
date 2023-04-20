@@ -45,7 +45,7 @@ const PropertiesClient = (props: PropertiesClientProps) => {
             actionId={listing.id}
             onAction={onCancel}
             disabled={deletingIg === listing.id}
-            actionLabel="Cancel reservation"
+            actionLabel="Delete property"
             currentUser={currentUser}
           />
         ))}
